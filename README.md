@@ -5,12 +5,19 @@ This repository showcases the robustness of Openpose 2D human pose estimator aga
 __Description__
 
 Run the script `pose_estimator_test.py` and sees everything for yourself.
+
 The required pose-estimator model file can be downloaded at: https://yadi.sk/d/blgmGpDi3PjXvK 
 
 __Prerequsites__
 
 tqdm
+
 Keras
+
 numpy
+
 skimage
+
 h5py
+
+Please note that Keras is merged into tensorflow now, so it's now `from tensorflow.keras` instead of `from keras`
