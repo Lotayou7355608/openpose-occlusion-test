@@ -312,7 +312,7 @@ if __name__ == "__main__":
     model = load_model('./pose_estimator.h5')
     pose_folder = estimate_all(image_folder, model)
     bad_image_folder = image_folder.replace('good', 'bad')
-    make_bad_images(image_folder, bad_image_folder, limbs = ['lthigh','rthigh'], cut_width = 8)
+    make_bad_images(image_folder, bad_image_folder, limbs = ['lshin','rshin'], cut_width = 8)
     bad_pose_folder = estimate_all(bad_image_folder, model)
     rate = calculate_missing_rate(pose_folder, bad_pose_folder, 'ntu')
     for k, v in rate.items():
