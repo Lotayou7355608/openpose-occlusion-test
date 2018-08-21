@@ -19,14 +19,18 @@ h5py
 
 ### Some Images
 Here is an example of successful attack, the pose estimator failed to detect left knee and left foot.
+
 ![good_image](samples/good_image_00058.jpg)
 ![good_pose](samples/good_pose_00058.jpg)
+
 ![bad_image](samples/bad_image_00058.jpg)
 ![bad_pose](samples/bad_pose_00058.jpg)
 
-Here is an example of failed attack, the pose estimator failed to detect left foot in the original image, but after the attack, it managed to recover the missing foot, how weird.
+Here is an example of failed attack, the pose estimator failed to detect right foot in the original image, but after the attack, it managed to recover the missing foot, how weird.
+
 ![good_image](samples/good_image_00000.jpg)
 ![good_pose](samples/good_pose_00000.jpg)
+
 ![bad_image](samples/bad_image_00000.jpg)
 ![bad_pose](samples/bad_pose_00000.jpg)
 
