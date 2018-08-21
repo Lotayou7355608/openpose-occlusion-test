@@ -5,14 +5,29 @@ This repository showcases the robustness of Openpose 2D human pose estimator aga
 ### Description
 
 Run the script `pose_estimator_test.py` and sees everything for yourself.
+<<<<<<< HEAD
 The required pose-estimator model file can be downloaded at [here](https://yadi.sk/d/blgmGpDi3PjXvK)
+=======
+
+The required pose-estimator model file can be downloaded at: https://yadi.sk/d/blgmGpDi3PjXvK 
+
+__Prerequsites__
+>>>>>>> 98d9a4b293f2068106f68ddc392e4bac478accc9
 
 ### Prerequsites
 ```
 tqdm
+<<<<<<< HEAD
 keras (or tf.keras)
+=======
+
+Keras
+
+>>>>>>> 98d9a4b293f2068106f68ddc392e4bac478accc9
 numpy
+
 skimage
+<<<<<<< HEAD
 h5py
 ```
 
@@ -41,3 +56,9 @@ Here is an example of failed attack, the pose estimator failed to detect left fo
 ### TODO
 - [x] Add some images
 - [ ] Add results for other datasets and amputation types
+=======
+
+h5py
+
+Please note that Keras is merged into tensorflow now, so it's now `from tensorflow.keras` instead of `from keras`
+>>>>>>> 98d9a4b293f2068106f68ddc392e4bac478accc9
