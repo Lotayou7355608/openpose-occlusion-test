@@ -247,17 +247,20 @@ def make_bad_images(image_folder, bad_image_folder, limbs, cut_width = 5):
 
 # Amputate limbs by drawing a black bar at middle point of the bone
 # input:
-# 	@ An image of 256*256
-#	@ A corresponding pose locations
-#	@ limbs: lthigh, rthigh, lshin, rshin
+#   @ An image of 256*256
+#   @ A corresponding pose locations
+#   @ limbs: lthigh, rthigh, lshin, rshin
 
 
-limbjoints = {'lthigh': (8,9), 'lshin': (9,10), 'rthigh': (11,12), 'rshin': (12,13)}
+limbjoints = {'lthigh': (8,9), 'lshin': (9,10), 'rthigh': (11,12), 'rshin': (12,13), 'larm': (2,3), 'rarm': (5,6)}
 
 def amputate_limbs(img, pose, bad_im_name, limbs, bar_width, half_bar_length=20):
     pose = pose.astype(np.float)
     for name in limbs:
         joints = limbjoints[name]
+        if any(pose[joints, 0] == -1):
+            continue
+        
         midpoint = np.sum(pose[joints, :], axis=0) / 2
         direction = np.squeeze(np.array([[1, -1]]) @ pose[joints, :]) # equivalent to p[0] - p[1]
         length = np.sqrt(direction[0] ** 2 + direction[1] ** 2)
@@ -305,14 +308,14 @@ if __name__ == "__main__":
     #
     # from shutil import copyfile
     # for item in list:
-    # 	copyfile(os.path.join(image_folder, item),
-    # 	         os.path.join(dest_folder, item))
+    #   copyfile(os.path.join(image_folder, item),
+    #            os.path.join(dest_folder, item))
 
     image_folder = 'good_ntu_images'
     model = load_model('./pose_estimator.h5')
     pose_folder = estimate_all(image_folder, model)
     bad_image_folder = image_folder.replace('good', 'bad')
-    make_bad_images(image_folder, bad_image_folder, limbs = ['lshin','rshin'], cut_width = 8)
+    make_bad_images(image_folder, bad_image_folder, limbs = ['larm', 'rarm', 'lthigh', 'rthigh'], cut_width = 8)
     bad_pose_folder = estimate_all(bad_image_folder, model)
     rate = calculate_missing_rate(pose_folder, bad_pose_folder, 'ntu')
     for k, v in rate.items():

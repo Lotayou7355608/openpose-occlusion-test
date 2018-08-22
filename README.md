@@ -38,11 +38,14 @@ Here is an example of failed attack, the pose estimator failed to detect right f
 
 ### Misdetection Results
 
+Use pure rectangles to "amputate" limbs from half:
 | Amputation Type  | Misdetection Rate |
 | :---: | :---: |
-| Both thighs | 0.105  |
-| Both shins | NaN |
+| Both thighs | 0.105 |
+| Both shins | 0.105 |
+| Both arms | 0.135 |
+| All limbs | 0.180 |
 
 ### TODO
 - [x] Add some images
-- [ ] Add results for other datasets and amputation types
+- [x] Add results for other datasets and amputation types
